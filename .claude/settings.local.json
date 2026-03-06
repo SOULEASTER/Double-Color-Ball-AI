@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(python3 -c \"\nimport json\n\n# 读取数据\nwith open(''data/lottery_history.json'', ''r'', encoding=''utf-8'') as f:\n    lottery = json.load(f)\n    \nwith open(''data/ai_predictions.json'', ''r'', encoding=''utf-8'') as f:\n    predictions = json.load(f)\n\nprint(''=== 历史开奖数据 ==='')\nprint(f''最新期号: {lottery[\"\"data\"\"][0][\"\"period\"\"]}'')\nprint(f''最新日期: {lottery[\"\"data\"\"][0][\"\"date\"\"]}'')\nprint(f''下期期号: {lottery[\"\"next_draw\"\"][\"\"next_period\"\"]}'')\n\nprint(''\\n=== AI 预测数据 ==='')\nprint(f''预测期号: {predictions[\"\"target_period\"\"]}'')\nprint(f''预测日期: {predictions[\"\"prediction_date\"\"]}'')\n\nprint(''\\n=== 逻辑判断 ==='')\nlatest = int(lottery[''data''][0][''period''])\ntarget = int(predictions[''target_period''])\nprint(f''{target} <= {latest} ? {target <= latest}'')\nprint(f''应该对比: {\"\"是\"\" if target <= latest else \"\"否\"\"}'')\n\")",
-      "Bash(git commit -m \"chore: add cache-busting version parameter to force refresh\n\n添加版本号参数强制刷新浏览器缓存，确保用户能看到最新的 Bug 修复。\n\n- CSS: style.css?v=20251027\n- JS: all JS files ?v=20251027\n\n这样可以避免浏览器缓存导致用户看到旧版本的代码。\")"
+      "Bash(git commit -m \"chore: add cache-busting version parameter to force refresh\n\n添加版本号参数强制刷新浏览器缓存，确保用户能看到最新的 Bug 修复。\n\n- CSS: style.css?v=20251027\n- JS: all JS files ?v=20251027\n\n这样可以避免浏览器缓存导致用户看到旧版本的代码。\")",
+      "Bash(uv sync:*)"
     ],
     "deny": [],
     "ask": []
