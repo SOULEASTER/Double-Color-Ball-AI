@@ -12,6 +12,14 @@ from typing import Any, Dict, List, Optional
 
 from openai import OpenAI
 
+# 尝试导入并加载 .env 文件
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
+
 BASE_URL = os.environ.get("AI_BASE_URL") or "https://aihubmix.com/v1"
 API_KEY = os.environ.get("AI_API_KEY")
 if not API_KEY:
@@ -19,10 +27,8 @@ if not API_KEY:
     sys.exit(1)
 
 MODELS = [
-    {"id": "gpt-4o", "name": "GPT-5", "model_id": "DLT-Team-001"},
-    {"id": "claude-3-5-sonnet-20241022", "name": "Claude 4.5", "model_id": "dlt_claude_45"},
-    {"id": "gemini-2.5-flash", "name": "Gemini 2.5", "model_id": "dlt_gemini_25"},
-    {"id": "deepseek-chat", "name": "DeepSeek R1", "model_id": "dlt_deepseek_r1"}
+    {"id": "gpt-4.1-free", "name": "GPT-4.1", "model_id": "dlt_gpt_4.1"},
+    {"id": "gemini-3-flash-preview-free", "name": "Gemini-3-flash-preview", "model_id": "dlt_gemini_3_flash"},
 ]
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))

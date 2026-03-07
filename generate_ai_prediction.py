@@ -11,6 +11,14 @@ from datetime import datetime, timedelta
 from openai import OpenAI
 from typing import Dict, Any
 
+# 尝试导入并加载 .env 文件
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
+
 # ==================== 配置区 ====================
 # API 配置（通过环境变量设置）
 BASE_URL = os.environ.get("AI_BASE_URL") or "https://aihubmix.com/v1"
